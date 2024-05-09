@@ -3,30 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Race List</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-<div class="container">
-    <h1>Race List</h1>
-    <table class="table table-striped">
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>Race Name</th>
-            <th>Distance in km</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="race : ${raceList}">
-            <td th:text="${race.getId()}"></td>
-            <td th:text="${race.getName()}"></td>
-            <td th:text="${race.getDistanceInKm()}"></td>
-            <td>
-                <a th:href="@{/race/{id}(id=${race.getId()})}" class="btn btn-primary">View</a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+<body class="bg-gray-100 text-gray-800">
+<div class="container mx-auto p-6">
+    <h1 class="text-3xl font-bold mb-4">Race List</h1>
+    <ul class="space-y-4">
+        <li th:each="race : ${raceList}"
+            th:href="@{/race/{id}(id=${race.getId()})}"
+            onclick="window.location.href=this.getAttribute('href');"
+            class="block bg-white border border-gray-300 p-4 rounded-lg shadow-md cursor-pointer hover:bg-gray-100">
+            <div class="flex justify-between">
+                <div>
+                    <span class="font-bold">ID:</span> <span th:text="${race.getId()}"></span><br>
+                    <span class="font-bold">Race Name:</span> <span th:text="${race.getName()}"></span><br>
+                    <span class="font-bold">Distance in km:</span> <span th:text="${race.getDistanceInKm()}"></span>
+                </div>
+            </div>
+        </li>
+    </ul>
 </div>
 </body>
 </html>
