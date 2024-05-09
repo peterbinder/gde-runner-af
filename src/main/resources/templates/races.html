@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Runner App</title>
+    <title>Race List</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
 <body>
-  <div th:text="test"></div>
+<div class="container">
+    <h1>Race List</h1>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Race Name</th>
+            <th>Distance in km</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="race : ${raceList}">
+            <td th:text="${race.getId()}"></td>
+            <td th:text="${race.getName()}"></td>
+            <td th:text="${race.getDistanceInKm()}"></td>
+            <td>
+                <a th:href="@{/race/{id}(id=${race.getId()})}" class="btn btn-primary">View</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>
