@@ -1,5 +1,6 @@
 package hu.gde.gderunneraf.domain;
 
+import hu.gde.gderunneraf.dto.CreateRaceCommand;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,6 +17,12 @@ public class Race {
     public Race(String name, int distanceInKm) {
         this.name = name;
         this.distanceInKm = distanceInKm;
+        this.results = new ArrayList<>();
+    }
+
+    public Race(CreateRaceCommand createRaceCommand) {
+        this.name = createRaceCommand.getName();
+        this.distanceInKm = createRaceCommand.getDistanceInKm();
         this.results = new ArrayList<>();
     }
 
