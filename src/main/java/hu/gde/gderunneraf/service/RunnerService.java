@@ -34,6 +34,7 @@ public class RunnerService {
         return raceRepository.findAll()
                 .stream()
                 .map(RaceDTO::new)
+                .sorted(Comparator.comparing(RaceDTO::getId))
                 .collect(Collectors.toList());
     }
 

@@ -13,7 +13,6 @@ import java.util.List;
 @NoArgsConstructor
 public class Race {
 
-
     public Race(String name, int distanceInKm) {
         this.name = name;
         this.distanceInKm = distanceInKm;

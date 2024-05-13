@@ -1,0 +1,154 @@
+{
+  "info": {
+    "name": "RunnerService API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get All Runners",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/getRunners",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "getRunners"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Add Runner",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\": \"John Doe\", \"age\": 25, \"gender\": \"Male\"}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/addRunner",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "addRunner"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Race Runners",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/getRaceRunners/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "getRaceRunners",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Update Race",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"id\": 1, \"name\": \"Updated Race Name\", \"distanceInKm\": 10}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/updateRace",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "updateRace"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Add Result",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"runnerId\": 1, \"raceId\": 1, \"timeInMinutes\": 120}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/addResult",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "addResult"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Average Time",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/getAverageTime/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "getAverageTime",
+            "1"
+          ]
+        }
+      }
+    }
+  ]
+}
