@@ -30,7 +30,6 @@ public class RunnerService {
         return raceRepository.save(race);
     }
 
-
     public List<RaceDTO> findAllRace() {
         return raceRepository.findAll()
                 .stream()
