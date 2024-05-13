@@ -24,9 +24,9 @@ public class ApplicationInit {
     @Transactional
     @PostConstruct
     public void createData() {
-//        List<Race> raceList = createRaces();
-//        List<Runner> runners = createRunners();
-//        createResults(raceList, runners);
+        List<Race> raceList = createRaces();
+        List<Runner> runners = createRunners();
+        createResults(raceList, runners);
     }
 
     private void createResults(List<Race> raceList, List<Runner> runners) {

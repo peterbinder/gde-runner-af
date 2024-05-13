@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -21,9 +22,7 @@ public class RunnerController {
     private final RunnerService runnerService;
 
     @GetMapping(path = "/")
-    public String home(Model model) {
-
-        model.addAttribute("test", "Ez egy teszt");
+    public String home() {
 
         return "home";
     }
@@ -56,7 +55,7 @@ public class RunnerController {
     }
 
     @PostMapping(path = "/races/create-race")
-    public String showRaces(@ModelAttribute(value = "createRaceCommand")  CreateRaceCommand createRaceCommand) {
+    public String showRaces(@ModelAttribute(value = "createRaceCommand") @Valid CreateRaceCommand createRaceCommand) {
 
         runnerService.createRace(createRaceCommand);
 
