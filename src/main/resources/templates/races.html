@@ -11,7 +11,7 @@
     <h1 class="text-3xl font-bold mb-4">Race List</h1>
     <ul class="space-y-4">
         <li th:each="race : ${raceList}"
-            th:href="@{/race/{id}(id=${race.getId()})}"
+            th:href="@{/races/{id}(id=${race.getId()})}"
             onclick="window.location.href=this.getAttribute('href');"
             class="block bg-white border border-gray-300 p-4 rounded-lg shadow-md cursor-pointer hover:bg-gray-100">
             <div class="flex justify-between">

@@ -24,20 +24,18 @@ public class ApplicationInit {
     @Transactional
     @PostConstruct
     public void createData() {
-        List<Race> raceList = createRaces();
-        List<Runner> runners = createRunners();
-        createResults(raceList, runners);
+//        List<Race> raceList = createRaces();
+//        List<Runner> runners = createRunners();
+//        createResults(raceList, runners);
     }
 
     private void createResults(List<Race> raceList, List<Runner> runners) {
         Random random = new Random();
         raceList.forEach(
-                race -> {
-                    runners.forEach(runner ->
-                            race.addResult(
-                                    new Result(runner, race, random.nextInt(120)))
-                    );
-                }
+                race -> runners.forEach(runner ->
+                        race.addResult(
+                                new Result(runner, race, random.nextInt(120)))
+                )
         );
 
         raceRepository.saveAll(raceList);
